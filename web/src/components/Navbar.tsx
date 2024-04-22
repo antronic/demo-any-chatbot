@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return (
     <nav className="navbar relative w-full bg-white text-black px-6 py-4 border-0">
-      <div className="container">
+      <div className="flex justify-between">
         <div className="navbar-brand">
           <a className="navbar-item flex gap-x-4" href="/">
             <img src={logoUrl} alt="Logo" className="h-12" />
@@ -19,6 +19,12 @@ export default function Navbar() {
               </span>
             </div>
             </a>
+        </div>
+
+        <div className="flex items-center">
+          <a className="hover:underline" href="https://github.com/antronic/demo-any-chatbot" target="_blank" rel="noreferrer">
+            Source Code
+          </a>
         </div>
       </div>
 
