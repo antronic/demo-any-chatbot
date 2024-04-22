@@ -7,24 +7,7 @@ type ChatState = {
 }
 
 export const useChatStore = create<ChatState>((set) => ({
-  messages: [
-    {
-      message: 'Hello there!',
-      meta: {
-        user: 'Bot',
-        dateTime: new Date(),
-        isCurrentUser: false,
-      }
-    },
-    {
-      message: 'Hi!',
-      meta: {
-        user: 'User',
-        dateTime: new Date(),
-        isCurrentUser: true,
-      }
-    },
-  ],
+  messages: [],
   addMessage: (message, meta) => set((state) => ({ messages: [...state.messages, { message, meta  }] })),
 
   currentChat: null,
