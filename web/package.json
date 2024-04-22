@@ -9,6 +9,9 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
+  "engines": {
+    "node": "^18.18.0 || >=20.0.0"
+  },
   "dependencies": {
     "dayjs": "^1.11.10",
     "react": "^18.2.0",
