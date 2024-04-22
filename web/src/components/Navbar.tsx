@@ -7,15 +7,22 @@ export default function Navbar() {
   // Load Logo URL
 
   return (
-    <nav className="navbar w-full bg-black px-6 py-4 border-b-2 border-b-white">
+    <nav className="navbar relative w-full bg-white text-black px-6 py-4 border-0">
       <div className="container">
         <div className="navbar-brand">
           <a className="navbar-item flex gap-x-4" href="/">
-            <img src={logoUrl} alt="Logo" />
-            <span className="text-white font-bold text-xl">Vite</span>
+            <img src={logoUrl} alt="Logo" className="h-12" />
+            <div className="flex flex-col">
+              <span className="font-bold text-xl">Any Chatbot</span>
+              <span className="text-xs">
+                by <a className="hover:underline" href="https://github.com/antronic" target="_blank" rel="noreferrer">Jirachai</a>
+              </span>
+            </div>
             </a>
         </div>
       </div>
+
+      <div className="w-full h-1 bg-gradient-to-r left-0 bottom-0 from-pink-600 via-yellow-600 to-purple-700 absolute"></div>
     </nav>
   )
 }

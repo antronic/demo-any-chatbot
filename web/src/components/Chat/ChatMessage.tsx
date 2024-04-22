@@ -1,5 +1,6 @@
 import dayjs from 'dayjs'
 import Markdown from 'react-markdown'
+import { useChatStore } from '../../store/chat'
 
 export type ChatMessageMeta = {
   user: string;
@@ -17,6 +18,8 @@ export interface IChatMessageProps {
 }
 
 export const ChatMessage: React.FC<IChatMessageProps> = (props) => {
+  const { themeColor } = useChatStore((state) => state)
+
   return (
     <div className="">
       <div className={`flex flex-col ${props.message.meta.isCurrentUser ? 'items-end' : ''}`}>
@@ -29,7 +32,7 @@ export const ChatMessage: React.FC<IChatMessageProps> = (props) => {
         }
 
         <div className={`flex items-end gap-x-2 ${props.message.meta.isCurrentUser && 'flex-row-reverse'}`}>
-          <div className={`${props.message.meta.isCurrentUser ? 'bg-brand-primary-400' : 'bg-slate-300'} text-black mt-2 p-2 rounded-sm`}>
+          <div className={`${props.message.meta.isCurrentUser ? themeColor : 'bg-slate-300'} text-black mt-2 p-2 rounded-sm`}>
             <Markdown>
               {props.message.message}
             </Markdown>

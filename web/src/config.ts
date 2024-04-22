@@ -1,6 +1,7 @@
 const LOGO_URL = '/images/logo.png'
 
-export const DEFAULT_LOGO_URL = '/vite.svg'
+export const DEFAULT_LOGO_URL = '/images/any-chatbot-logo.png'
+export const CHATBOT_NAME = 'Any Chatbot'
 
 // Load Logo URL, if file not found, return default logo URL
 const checkLogoUrl = async (url: string) => {
