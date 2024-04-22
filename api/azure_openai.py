@@ -17,6 +17,8 @@ client = AzureOpenAI(
 )
 
 def summarize_chat(history, message):
+  print('endponit: ' + endpoint)
+
   prompt = f"""
   Summarize the chat below for using as chat history background. If messages is empty, return as "None":
   ---
