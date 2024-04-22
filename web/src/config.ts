@@ -16,4 +16,4 @@ const checkLogoUrl = async (url: string) => {
   }
 }
 
-export const getLogoUrl = await checkLogoUrl(LOGO_URL)
+export const getLogoUrl = async () => await checkLogoUrl(LOGO_URL)
