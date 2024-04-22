@@ -16,7 +16,8 @@ function App() {
         <ChatBox />
       </div>
 
-      <div className="mt-2">
+      <div className="mt-2 p-2 w-3/4 border-2 border-white bg-black mx-auto">
+        <p className="my-2">Response:</p>
         <code>
           {JSON.stringify(sendMessageResponse, null, 2)}
         </code>
