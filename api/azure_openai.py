@@ -16,11 +16,13 @@ client = AzureOpenAI(
   azure_endpoint=endpoint
 )
 
-def summarize_chat(messages):
+def summarize_chat(history, message):
   prompt = f"""
-  Summarize the chat below for using as chat history background. If messages is empty, return as None:
+  Summarize the chat below for using as chat history background. If messages is empty, return as "None":
   ---
-  {messages}
+  {history}
+
+  User new message: {message}
   """
 
   response = client.completions.create(

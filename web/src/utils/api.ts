@@ -1,7 +1,7 @@
 const HOST = 'http://127.0.0.1:5000'
 
 // Api hooks
-export const sendMessage = async (message: string, history: { chat: string, role: string }[]) => {
+export const sendMessage = async (message: string, history: { chat: string, role: string }[] | string) => {
   const response = await fetch(HOST + '/api/message', {
     method: 'POST',
     headers: {

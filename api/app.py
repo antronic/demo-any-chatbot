@@ -25,14 +25,15 @@ def receive_message():
     message = request.json['message']
     history = request.json['history']
 
-    history_summary = summarize_chat(history)
+    history_summary = summarize_chat(history, message).choices[0].text
 
-    print(history_summary.choices[0].text)
+    print("history_summary")
+    print(history_summary)
 
-    response = get_response(message, history_summary.choices[0].text)
+    response = get_response(message, history_summary)
     data = list(map(lambda choice: choice.message.content, response.choices))
 
-    return { 'messages': data, 'length': len(data)}
+    return { 'messages': data, 'length': len(data), "history_summary": history_summary }
 
 # Register blueprint
 app.register_blueprint(api)

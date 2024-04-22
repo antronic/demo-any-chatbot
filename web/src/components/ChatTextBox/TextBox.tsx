@@ -13,8 +13,16 @@ export const TextBox: React.FC<ITextBoxProps> = (props) => {
   const [isTyping, setIsTyping] = useState<boolean>(false)
   const { themeColor, setThemeColor } = useChatStore((state) => state)
 
-  const { addMessage, messages } = useChatStore((state) => state)
+  const { addMessage, messages, history_summary } = useChatStore((state) => state)
   const { setSendMessageResponse } = useApiStore((state) => state)
+
+  function sendChatHistory() {
+    if (history_summary === null) {
+      return messages.map((m) => ({ chat: m.message, role: m.meta.user })) || []
+    }
+
+    return history_summary
+  }
 
   async function handleSend() {
     addMessage(message, {
@@ -25,7 +33,7 @@ export const TextBox: React.FC<ITextBoxProps> = (props) => {
     setMessage('')
 
     setIsTyping(true)
-    const data = await sendMessage(message, messages.map((m) => ({ chat: m.message, role: m.meta.user })) || [])
+    const data = await sendMessage(message, sendChatHistory())
     setSendMessageResponse(data)
     addMessage(data.messages[0], {
       user: 'Bot',

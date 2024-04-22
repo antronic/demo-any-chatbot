@@ -8,6 +8,7 @@ type ChatState = {
   currentChat: string | null
   themeColor: string
   setThemeColor: (themeColor: string) => void
+  history_summary: string | null
 }
 
 export const useChatStore = create<ChatState>((set) => ({
@@ -17,4 +18,5 @@ export const useChatStore = create<ChatState>((set) => ({
   currentChat: null,
   themeColor: 'bg-brand-primary-400',
   setThemeColor: (themeColor: string) => set(() => ({ themeColor })),
+  history_summary: null
 }))
