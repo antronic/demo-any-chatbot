@@ -21,10 +21,6 @@ export interface IChatMessageProps {
 export const ChatMessage: React.FC<IChatMessageProps> = (props) => {
   const { themeColor } = useChatStore((state) => state)
 
-  function readText() {
-    speak(props.message.message)
-  }
-
   return (
     <div className="">
       <div className={`flex flex-col ${props.message.meta.isCurrentUser ? 'items-end' : ''}`}>
@@ -44,10 +40,6 @@ export const ChatMessage: React.FC<IChatMessageProps> = (props) => {
           </div>
 
           <span className="text-xs">{dayjs(props.message.meta.dateTime).format('HH:mm').toString()}</span>
-        </div>
-
-        <div>
-          <button className="bg-slate-900 px-2 py-1 rounded-sm text-xs" onClick={readText}>Read text</button>
         </div>
       </div>
     </div>
