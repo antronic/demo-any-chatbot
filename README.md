@@ -1,5 +1,5 @@
 # Any Chatbot
-![Any Chatbot Logo](https://raw.githubusercontent.com/antronic/demo-any-chatbot/main/images/any-chatbot.png)
+![Any Chatbot Logo](https://raw.githubusercontent.com/antronic/demo-any-chatbot/main/images/any-chatbot-head.png)
 <!-- Build status -->
 <!-- ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/antronic/demo-any-chatbot/CI) -->
 ![GitHub](https://img.shields.io/github/license/antronic/demo-any-chatbot)
@@ -20,3 +20,5 @@ A simple chatbot that allow you to customize and reusable for any project purpos
 ## License
 
 MIT License © 2024 [Jirachai Chansivanon](https://blog.jirachai.me)
+
+
