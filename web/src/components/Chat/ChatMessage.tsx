@@ -1,6 +1,7 @@
 import dayjs from 'dayjs'
 import Markdown from 'react-markdown'
 import { useChatStore } from '../../store/chat'
+import { getRecognizer, speak } from '../../utils/azure-speech'
 
 export type ChatMessageMeta = {
   user: string;
@@ -19,6 +20,10 @@ export interface IChatMessageProps {
 
 export const ChatMessage: React.FC<IChatMessageProps> = (props) => {
   const { themeColor } = useChatStore((state) => state)
+
+  function readText() {
+    speak(props.message.message)
+  }
 
   return (
     <div className="">
@@ -39,6 +44,10 @@ export const ChatMessage: React.FC<IChatMessageProps> = (props) => {
           </div>
 
           <span className="text-xs">{dayjs(props.message.meta.dateTime).format('HH:mm').toString()}</span>
+        </div>
+
+        <div>
+          <button className="bg-slate-900 px-2 py-1 rounded-sm text-xs" onClick={readText}>Read text</button>
         </div>
       </div>
     </div>
