@@ -10,7 +10,7 @@ export default function Navbar() {
     <nav className="navbar relative w-full bg-white text-black px-6 py-4 border-0">
       <div className="flex justify-between">
         <div className="navbar-brand">
-          <a className="navbar-item flex gap-x-4" href="/">
+          <div className="navbar-item flex gap-x-4">
             <img src={logoUrl} alt="Logo" className="h-12" />
             <div className="flex flex-col">
               <span className="font-bold text-xl">Any Chatbot</span>
@@ -18,7 +18,7 @@ export default function Navbar() {
                 by <a className="hover:underline" href="https://github.com/antronic" target="_blank" rel="noreferrer">Jirachai</a>
               </span>
             </div>
-            </a>
+            </div>
         </div>
 
         <div className="flex items-center">
