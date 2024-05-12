@@ -1,5 +1,7 @@
 import dayjs from 'dayjs'
 import Markdown from 'react-markdown'
+import { Icon } from '@iconify/react'
+
 import { useChatStore } from '../../store/chat'
 import { getRecognizer, speak } from '../../utils/azure-speech'
 
@@ -21,6 +23,10 @@ export interface IChatMessageProps {
 export const ChatMessage: React.FC<IChatMessageProps> = (props) => {
   const { themeColor } = useChatStore((state) => state)
 
+  function readText() {
+    speak(props.message.message)
+  }
+
   return (
     <div className="">
       <div className={`flex flex-col ${props.message.meta.isCurrentUser ? 'items-end' : ''}`}>
@@ -41,6 +47,11 @@ export const ChatMessage: React.FC<IChatMessageProps> = (props) => {
 
           <span className="text-xs">{dayjs(props.message.meta.dateTime).format('HH:mm').toString()}</span>
         </div>
+
+        {/* Add read text button with icon with margin 2 */}
+        <button className="mt-2" onClick={readText}>
+          <Icon icon="akar-icons:play" />
+        </button>
       </div>
     </div>
   )

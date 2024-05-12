@@ -44,6 +44,35 @@ export const TextBox: React.FC<ITextBoxProps> = () => {
     setIsTyping(false)
   }
 
+
+  // List 7 rainbow colors button to set the button color
+  function handleColorChange(color: string) {
+    setThemeColor(color)
+  }
+
+  // Render 7 rainbow colors button to set the button color with name of the color
+  function listButtons() {
+    const colors = [
+      'bg-red-400',
+      'bg-orange-400',
+      'bg-yellow-400',
+      'bg-green-400',
+      'bg-blue-400',
+      'bg-indigo-400',
+      'bg-purple-400',
+    ]
+
+    // List circle buttons
+    return colors.map((color) => (
+      <button
+        key={color}
+        className={`${color} w-8 h-8 rounded-full`}
+        onClick={() => handleColorChange(color)}
+      ></button>
+    ))
+
+  }
+
   return (
     <div>
       <div className="flex items-center justify-between w-full gap-x-2">
@@ -71,6 +100,12 @@ export const TextBox: React.FC<ITextBoxProps> = () => {
 
       <div className="text-sm my-2">
         <p>{isTyping ? 'Bot is typing...' : ''}</p>
+      </div>
+
+      {/* Customize your chat color */}
+      <div className="w-full mt-4">
+        <p>Customize your chat color:</p>
+        <div className="flex gap-x-2 mt-2">{listButtons()}</div>
       </div>
     </div>
   )
