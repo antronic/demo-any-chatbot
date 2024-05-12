@@ -1,5 +1,7 @@
 import dayjs from 'dayjs'
 import Markdown from 'react-markdown'
+import { Icon } from '@iconify/react'
+
 import { useChatStore } from '../../store/chat'
 import { getRecognizer, speak } from '../../utils/azure-speech'
 
@@ -46,9 +48,10 @@ export const ChatMessage: React.FC<IChatMessageProps> = (props) => {
           <span className="text-xs">{dayjs(props.message.meta.dateTime).format('HH:mm').toString()}</span>
         </div>
 
-        <div>
-          <button className="bg-slate-900 px-2 py-1 rounded-sm text-xs" onClick={readText}>Read text</button>
-        </div>
+        {/* Add read text button with icon with margin 2 */}
+        <button className="mt-2" onClick={readText}>
+          <Icon icon="akar-icons:play" />
+        </button>
       </div>
     </div>
   )
