@@ -25,7 +25,10 @@ def receive_message():
     message = request.json['message']
     history = request.json['history']
 
-    history_summary = summarize_chat(history, message).choices[0].text
+    history_summary = "None"
+
+    if len(history) > 0:
+        history_summary = summarize_chat(history, message).choices[0].text
 
     print("history_summary")
     print(history_summary)
